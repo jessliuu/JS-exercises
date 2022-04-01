@@ -84,3 +84,57 @@ function printRepeat(arr) {
 }
 
 console.log(printRepeat(myArr));
+
+//Join all elements of the following array into a string.
+function joinArrElements(arr) {
+  return arr.toString();
+}
+
+let arrOfElements = ["Red", "Green", "White", "Black"];
+console.log(joinArrElements(arrOfElements));
+
+//Reverse a number
+function reverseNumber(num) {
+  let str = num.toString();
+  let reverseStr = "";
+  for (i = 0; i < str.length; i++) {
+    reverseStr = str[i] + reverseStr;
+  }
+  return parseInt(reverseStr);
+}
+
+console.log(reverseNumber(678679823));
+
+//returns a string in alphabetical order.
+function alphabeticalorder(str) {
+  return str.split("").sort().join("");
+}
+
+console.log(alphabeticalorder("webmaster"));
+
+//converts the first letter of every word to uppercase
+
+function uppercase(str) {
+  let arr = str.split(" ");
+  for (i = 0; i < arr.length; i++) {
+    arr[i] = arr[i][0].toUpperCase() + arr[i].slice(1);
+  }
+  return arr.join(" ");
+}
+
+console.log(uppercase("hello world"));
+
+//finds the longest word in a phrase
+
+function longestWord(str) {
+  let arr = str.split(" ");
+  let longest = "";
+  for (i = 0; i < arr.length; i++) {
+    if (arr[i].length > longest.length) {
+      longest = arr[i];
+    }
+  }
+  return longest;
+}
+
+console.log(longestWord("hello world my name is Yuval Noah Harari"));
