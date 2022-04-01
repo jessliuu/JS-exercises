@@ -138,6 +138,42 @@ function longestWord(str) {
 }
 console.log(longestWord("hello world my name is Yuval Noah Harari"));
 
+//Extra: Function exercises
+
+function area() {
+  console.log(length * width);
+}
+
+var length = 10;
+var width = 20;
+area();
+
+function area2() {
+  return l * w;
+}
+
+var l = 4;
+var w = 200;
+console.log(area2());
+
+function area3(a, b) {
+  return a * b;
+}
+console.log(area3(7, 9));
+
+//determines the type of a triangle given the length of its three sides.
+function typeOfTriangle(a, b, c) {
+  if ((a === b) === c) {
+    console.log("I am a equilateral triangle");
+  } else if (a === b || b === c || c === a) {
+    console.log("I am an isosceles triangle");
+  } else {
+    console.log("I am a scalane triangle");
+  }
+}
+
+typeOfTriangle(2, 8, 9);
+
 // other exercises
 
 //Have the function BracketMatcher(str) take the str parameter being passed and return 1
