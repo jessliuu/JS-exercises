@@ -1,3 +1,66 @@
+var paragraph1 = document.getElementById("para1");
+console.log(paragraph1);
+
+var paragraph2 = document.getElementById("para1");
+console.log(paragraph2.textContent);
+
+var header = document.querySelector("h1");
+console.log(header);
+
+//these two are the same
+var ul = document.querySelector("ul");
+console.log(ul);
+
+var ul = document.querySelector(".list");
+console.log(ul);
+
+//if want content only:
+console.log(ul.textContent);
+
+//these two are the same
+var li = document.querySelectorAll("li");
+console.log(li);
+
+var liChildOfUl = document.querySelectorAll("ul > li");
+console.log(liChildOfUl);
+
+//if want content only:
+li.forEach((item) => {
+  console.log(item);
+});
+
+//How to create new elements
+let unorderedList = document.createElement("ul");
+document.body.appendChild(unorderedList);
+
+let listItem1 = document.createElement("li");
+listItem1.textContent = "It's free";
+unorderedList.appendChild(listItem1);
+let listItem2 = document.createElement("li");
+listItem2.textContent = "It's awesome";
+unorderedList.appendChild(listItem2);
+
+let resetButton = document.getElementById("reset");
+resetButton.addEventListener("click", function () {
+  alert("This page will be reset");
+});
+
+let submitButton = document.createElement("button");
+document.body.appendChild(submitButton);
+submitButton.id = "submit";
+submitButton.type = "submit";
+submitButton.style.width = "200px";
+submitButton.style.height = "100px";
+submitButton.textContent = "Click to submit";
+
+submitButton.addEventListener("click", function () {
+  alert("Thank you for clicking me");
+});
+//How to change inline CSS styles
+let blueP = document.querySelector("ul");
+blueP.style.color = "blue";
+
+//JS EXERCISES FROM CAB
 console.log("Starting javascript...");
 
 let myName = "Yuval Noah Harari";
@@ -174,7 +237,7 @@ function typeOfTriangle(a, b, c) {
 
 typeOfTriangle(2, 8, 9);
 
-// other exercises
+// OTHER JS EXERCISES
 
 //Have the function BracketMatcher(str) take the str parameter being passed and return 1
 //if the brackets are correctly matched and each one is accounted for.Otherwise return 0.
