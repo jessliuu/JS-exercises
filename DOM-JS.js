@@ -1,12 +1,12 @@
-// function addBands(myList) {
-//   for (i = 0; i < myList.length; i++) {
-//     let band = document.createElement("li");
-//     band.textContent = myList[i];
-//     document.getElementById("band-list").appendChild(band);
-//   }
-// }
+function addBands(myList) {
+  for (i = 0; i < myList.length; i++) {
+    let band = document.createElement("li");
+    band.textContent = myList[i];
+    document.getElementById("band-list").appendChild(band);
+  }
+}
 
-// addBands(["Dire Straits", "Kansas", "Beach Boys"]);
+addBands(["Dire Straits", "Kansas", "Beach Boys"]);
 
 function addMultTable(rows, cols) {
   let tbl = document.createElement("table");
@@ -18,7 +18,7 @@ function addMultTable(rows, cols) {
       tableCell.innerHTML = i * j;
     }
   }
-  document.querySelector("h1").appendChild(tbl);
+  document.querySelector("h2").appendChild(tbl);
 }
 addMultTable(4, 8);
 
