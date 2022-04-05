@@ -237,6 +237,99 @@ function typeOfTriangle(a, b, c) {
 
 typeOfTriangle(2, 8, 9);
 
+//receives as a parameter an array of characters and replaces all "a" by "1". e.g.: JavaScript will become J1v1Script.
+function replaceA(str) {
+  newStr = "";
+  for (let i = 0; i < str.length; i++) {
+    if (str[i] === "a") {
+      newStr += "1";
+    } else {
+      newStr += str[i];
+    }
+  }
+  return newStr;
+}
+
+console.log(replaceA("Javascript"));
+
+//sum all elements of an array
+function sumElements(arr) {
+  sum = 0;
+  for (let i = 0; i < arr.length; i++) {
+    sum += arr[i];
+  }
+  return sum;
+}
+
+console.log(sumElements([1, 2, 3, 4]));
+
+//find smallest number of an array
+function smallest(arr) {
+  let smaller = arr[0];
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] < smaller) {
+      smaller = arr[i];
+    }
+  }
+  return smaller;
+}
+
+console.log(smallest([1, 2, 3, 0]));
+
+//adds the even numbers of an array
+function addEven(arr) {
+  let sum = 0;
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] % 2 === 0) {
+      sum += arr[i];
+    }
+  }
+  return sum;
+}
+
+console.log(addEven([3, 6, 67, 6, 23, 11, 100, 8]));
+
+//adds the even positions of an array
+function addEvenPosition(arr) {
+  let sum = 0;
+  for (let i = 0; i < arr.length; i++) {
+    if (i % 2 === 0) {
+      sum += arr[i];
+    }
+  }
+  return sum;
+}
+
+console.log(addEvenPosition([3, 6, 67, 6, 23, 11, 100, 8]));
+
+//by sending a number as parameter, tells you all the even numbers before it
+function findEvenBefore(n) {
+  let arr = [];
+  for (let i = n; i >= 0; i--) {
+    if (i % 2 === 0) {
+      arr.push(i);
+    }
+  }
+  return arr;
+}
+
+console.log(findEvenBefore(9));
+
+//by sending two numbers as parameters, it tells you the odd numbers between these.
+function findOddBetween(x, y) {
+  let arr = [];
+  let smaller = Math.min(x, y);
+  let larger = Math.max(x, y);
+  for (let i = smaller; i <= larger; i++) {
+    if (i % 2 !== 0) {
+      arr.push(i);
+    }
+  }
+  return arr;
+}
+
+console.log(findOddBetween(13, 1));
+
 // OTHER JS EXERCISES
 
 //Have the function BracketMatcher(str) take the str parameter being passed and return 1
