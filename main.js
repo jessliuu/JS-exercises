@@ -449,3 +449,151 @@ function Superincreasing(arr) {
 }
 
 console.log(Superincreasing([1, 3, 6, 13, 54]));
+
+//Have the function RemoveBrackets(str) take the str parameter being passed, which will contain only
+//the characters "(" and ")", and determine the minimum number of brackets that need to be removed to create a string
+//of correctly matched brackets
+function RemoveBrackets(str) {
+  firstOpening = str.indexOf("(");
+  bracketsToRemove = firstOpening;
+  left = 0;
+
+  for (let i = firstOpening; i < str.length; i++) {
+    if (str[i] === "(") {
+      left++;
+    } else if (str[i] === ")" && left > 0) {
+      left--;
+    } else if (str[i] === ")" && left === 0) {
+      bracketsToRemove++;
+    }
+  }
+  return bracketsToRemove + Math.abs(left);
+}
+
+console.log(RemoveBrackets("(()))"));
+
+//Have the function FirstFactorial(num) take the num parameter being passed and return the factorial of it.
+//For example: if num = 4, then your program should return (4 * 3 * 2 * 1) = 24.
+
+function FirstFactorial(num) {
+  product = 1;
+  for (let i = num; i > 0; i--) {
+    product *= i;
+  }
+
+  return product;
+}
+
+//Have the function SimpleAdding(num) add up all the numbers from 1 to num.
+
+function SimpleAdding(num) {
+  sum = 0;
+  for (let i = num; i > 0; i--) {
+    sum += i;
+  }
+  return sum;
+}
+//Have the function AlphabetSoup(str) take the str string parameter being passed
+//and return the string with the letters in alphabetical order(ie.hello becomes ehllo).
+//Assume numbers and punctuation symbols will not be included in the string.
+
+function AlphabetSoup(str) {
+  let newStr = str.split("");
+  newStr.sort();
+  return newStr.join("");
+}
+
+//Have the function TimeConvert(num) take the num parameter being passed and return the
+//number of hours and minutes the parameter converts to(ie.if num = 63 then the output should be 1: 3).
+//Separate the number of hours and minutes with a colon.
+
+function TimeConvert(num) {
+  let hour = Math.floor(num / 60);
+  let minutes = num % 60;
+  if (hour >= 1) {
+    return hour + ":" + minutes;
+  }
+  return 0 + ":" + minutes;
+}
+
+//Have the function LongestWord(sen) take the sen parameter being passed and return the longest word in the string.
+//If there are two or more words that are the same length, return the first word from the string with that length.
+
+function LongestWord(sen) {
+  sen = sen.match(/[a-z0-9 ]/gi).join("");
+  arr = sen.split(" ");
+  longest = "";
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i].length > longest.length) {
+      longest = arr[i];
+    }
+  }
+  return longest;
+}
+
+//Have the function VowelCount(str) take the str string parameter being passed and return
+//the number of vowels the string contains (ie. "All cows eat grass and moo" would return 8).
+function VowelCount(str) {
+  let arr = [];
+  for (let i = 0; i < str.length; i++) {
+    if (
+      str[i] === "a" ||
+      str[i] === "e" ||
+      str[i] === "i" ||
+      str[i] === "o" ||
+      str[i] === "u"
+    ) {
+      arr.push(str[i]);
+    }
+  }
+  return arr.length;
+}
+
+//Have the function DashInsert(str) insert dashes ('-') between each two odd numbers in str.
+//For example: if str is 454793 the output should be 4547 - 9 - 3.
+function DashInsert(str) {
+  let arr = str.split("");
+  for (let i = 0; i < str.length; i++) {
+    if (arr[i] % 2 === 1 && arr[i + 1] % 2 === 1) {
+      arr[i] = arr[i] + "-";
+    }
+  }
+  return arr.join("");
+}
+
+//Have the function WordCount(str) take the str string parameter being passed and return the number of words
+//the string contains(e.g. "Never eat shredded wheat or cake" would return 6).
+
+function WordCount(str) {
+  return str.split(" ").length;
+  // code goes here
+}
+
+//Have the function SwapCase(str) take the str parameter and swap the case of each character. For example: if str is
+//"Hello World" the output should be hELLO wORLD.Let numbers and symbols stay the way they are.
+
+function SwapCase(str) {
+  let newStr = "";
+  for (let i = 0; i < str.length; i++) {
+    if (str[i] === str[i].toLowerCase()) {
+      newStr += str[i].toUpperCase();
+    } else if (str[i] === str[i].toUpperCase()) {
+      newStr += str[i].toLowerCase();
+    } else {
+      newStr += str[i];
+    }
+  }
+  return newStr;
+}
+
+//Have the function ExOh(str) take the str parameter being passed and return the string true if
+//there is an equal number of x's and o's, otherwise return the string false.Only these two letters will be
+//entered in the string, no punctuation or numbers.For example: if str is "xooxxxxooxo" then the output should
+//return false because there are 6 x's and 5 o's.
+
+function ExOh(str) {
+  let exes = str.match(/x/gi) || [];
+  let ohes = str.match(/o/gi) || [];
+  // code goes here
+  return exes.length === ohes.length;
+}
