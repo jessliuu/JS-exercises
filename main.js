@@ -604,3 +604,97 @@
 
 // console.log(nameInitials("Maria Elizabeth Spencer"))
 
+// Devs like to abbreviate everything: k8s means Kubernetes, a11y means accessibility, l10n means localization. 
+// You get the Dev numeronyms by taking the first and the last letter and counting the number of letters in between. 
+// Words that have less than 4 letters aren't abbreviated, because that would just be odd. The input is a sentence, 
+// and you should abbreviate every word that is 4 letters long or longer. There won't be any punctuation in the sentence. 
+
+// const numeronyms = (str) => {
+// const words = str.split(" ")
+// const arr = words.map((word)=> {
+//   if (word.length>=4) {
+//     return word[0] + (word.length-2) + word[word.length-1]
+//   }
+// return word}).join(' ')
+// return arr
+// }
+// console.log(numeronyms("you are very nice"))
+
+// Complete the below questions using this array:
+
+const input = [
+  {
+    username: "john",
+    team: "red",
+    score: 5,
+    items: ["ball", "book", "pen"]
+  },
+  {
+    username: "becky",
+    team: "blue",
+    score: 10,
+    items: ["tape", "backpack", "pen"]
+  },
+  {
+    username: "susy",
+    team: "red",
+    score: 55,
+    items: ["ball", "eraser", "pen"]
+  },
+  {
+    username: "tyson",
+    team: "green",
+    score: 1,
+    items: ["book", "pen"]
+  },
+
+];
+
+//Create an array using forEach that adds a "!" to each of the usernames
+
+const addExPoint = (arr) => {
+  const newArr = []
+arr.forEach((person)=> newArr.push({...person, username: `${person.username}!`}))
+return newArr
+} 
+// console.log(addExPoint(input))
+
+// const newArrayForEach = []
+// array.forEach(user => {
+//   newArrayForEach.push({ ...user, username: `${user.username}!` })
+// })
+
+//Create an array using map that has all the usernames with a "? to each of the usernames
+
+const addQuestionMark = (arr) => {
+  const newArr = arr.map(person => ({...person, username: `${person.username}?`}))
+  return newArr
+}
+
+// console.log(addQuestionMark(input))
+
+//Filter the array to only include users who are on team: red
+
+const teamRed = (arr) => {
+  const newArr = arr.filter((person) => person.team === 'red'
+  )
+  return newArr
+}
+
+// console.log(teamRed(input))
+
+//Find out the total score of all users using reduce
+
+const totalScore = (arr) => {
+  const score = arr.reduce((accumulator, person) => accumulator + person.score, 0)
+  return score
+}
+
+// console.log(totalScore(input))
+
+// create a new list with all user information, but add "!" to the end of each items they own.
+const addExPointToItems = (arr) => {
+  const newArr = arr.map(person=>({...person, items: person.items.map(item=>item+"!")}))
+  return newArr
+}
+console.log(addExPointToItems(input))
