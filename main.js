@@ -693,8 +693,38 @@ const totalScore = (arr) => {
 // console.log(totalScore(input))
 
 // create a new list with all user information, but add "!" to the end of each items they own.
-const addExPointToItems = (arr) => {
-  const newArr = arr.map(person=>({...person, items: person.items.map(item=>item+"!")}))
+// const addExPointToItems = (arr) => {
+//   const newArr = arr.map(person=>({...person, items: person.items.map(item=>item+"!")}))
+//   return newArr
+// }
+// console.log(addExPointToItems(input))
+
+// create a new list with all user information, but add 20 to each Team Red person's score
+
+// #1 Code below shows only Team Red users
+const addScore1 = (arr) => {
+  const newArr = arr.filter(person => person.team === 'red').map(person=>({...person, score: person.score+20}))
   return newArr
 }
-// console.log(addExPointToItems(input))
+
+// console.log(addScore(input))
+
+// #2 Code below shows all users
+
+const addScore2 = (arr) => {
+  const newArr = arr.map(person => 
+    {if (person.team === 'red') {return ({...person, score: person.score+20}) }
+   return person})
+  return newArr
+}
+
+console.log(addScore2(input))
+// const numeronyms = (str) => {
+// const words = str.split(" ")
+// const arr = words.map((word)=> {
+//   if (word.length>=4) {
+//     return word[0] + (word.length-2) + word[word.length-1]
+//   }
+// return word}).join(' ')
+// return arr
+// }
