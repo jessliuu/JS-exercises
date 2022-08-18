@@ -697,4 +697,4 @@ const addExPointToItems = (arr) => {
   const newArr = arr.map(person=>({...person, items: person.items.map(item=>item+"!")}))
   return newArr
 }
-console.log(addExPointToItems(input))
+// console.log(addExPointToItems(input))
