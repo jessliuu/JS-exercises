@@ -185,4 +185,53 @@ var lengthOfLongestSubstring2 = function (s) {
   return maxLen;
 };
 
-console.log(lengthOfLongestSubstring2("pwwkew"));
+// console.log(lengthOfLongestSubstring2("pwwkew"));
+
+// Given an integer x, return true if x is palindrome integer. Do not convert to string.
+
+var isPalindrome = (x) => {
+  if (x === 0 || (x > 0 && x < 10)) {
+    return true;
+  } else if (x < 0 || x % 10 === 0) {
+    return false;
+  } else {
+    let revertedHalf = 0;
+    while (x > revertedHalf) {
+      revertedHalf = revertedHalf * 10 + (x % 10);
+      console.log("revertedHalf", revertedHalf);
+      x = Math.trunc(x / 10);
+      console.log("x", x);
+    }
+    return x === revertedHalf || Math.trunc(revertedHalf / 10) === x;
+  }
+};
+
+// console.log(isPalindrome(1));
+
+//Given a roman numeral, convert it to an integer.
+
+const romanToInt = (s) => {
+  const map = { I: 1, V: 5, X: 10, L: 50, C: 100, D: 500, M: 1000 };
+  let num = 0;
+  for (let i = 0; i < s.length; i++) {
+    let current = map[s[i]];
+    let next = map[s[i + 1]];
+    if (current < next) {
+      console.log("current", map[s[i]]);
+      console.log("previous", map[s[i - 1]]);
+      num -= current;
+    } else {
+      num += current;
+    }
+  }
+  return num;
+};
+
+// console.log(romanToInt("IX"));
+
+var mergeTwoLists = function (list1, list2) {
+  mergedList = [...list1, ...list2];
+  return mergedList.sort();
+};
+
+console.log(mergeTwoLists([1, 2, 4], [1, 3, 4]));
