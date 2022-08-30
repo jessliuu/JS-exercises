@@ -234,4 +234,24 @@ var mergeTwoLists = function (list1, list2) {
   return mergedList.sort();
 };
 
-console.log(mergeTwoLists([1, 2, 4], [1, 3, 4]));
+// console.log(mergeTwoLists([1, 2, 4], [1, 3, 4]));
+
+// Given a sorted array of distinct integers and a target value, return the index if the target is found. If not, return the index where it would be if it were inserted in order.
+
+const searchPosition = (arr, n) => {
+  if (arr.indexOf(n) != -1) {
+    return arr.indexOf(n);
+  } else if (arr[0] > n) {
+    return 0;
+  } else if (arr.slice(-1) < n) {
+    return arr.length;
+  } else {
+    for (let i = 0; i < arr.length; i++) {
+      if (arr[i] < n && arr[i + 1] >= n) {
+        return i + 1;
+      }
+    }
+  }
+};
+
+console.log(searchPosition([1, 2, 3, 14], 3));

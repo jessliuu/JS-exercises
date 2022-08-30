@@ -720,39 +720,3 @@ const addScore2 = (arr) => {
 
 // console.log(addScore2(input))
 
-
-const maximumWealth1 = function(accounts) {
-  const arr = []
-  for (let i = 0; i<accounts.length; i++) {
-      let wealth = accounts[i].reduce((acc, currentValue) => acc + currentValue, 0)
-      arr.push(wealth)
-  }
-  return Math.max(...arr)
-};
-
-const maximumWealth2 = function(accounts) {
-  const arr = accounts.map((account) => account.reduce((acc, currentValue) => acc + currentValue, 0) )
-  return Math.max(...arr)
-};
-
-const maximumWealthData = [[1,2,3, 7],[3,2,1], [6,9]]
-
-// console.log(maximumWealth2(data))
-
-
-var fizzBuzz = function(n) {
-    
-  let arr = []
-  for(let i=1; i<n+1; i++){
-      arr.push(i)
-    }
-
-  const newArr = arr.map((num)=> 
-         {if (num%3===0){return "Fizz"}
-  else if (num%5===0){return "Buzz"}
-  else {return num}})
-  return newArr
-};
-
-
-console.log(fizzBuzz(10))

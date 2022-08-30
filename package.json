@@ -1,4 +1,5 @@
-{ "script": {
+{ 
+  "scripts": {
   "test": "jest"
 },
   "dependencies": {
