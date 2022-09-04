@@ -161,7 +161,7 @@ var lengthOfLongestSubstring1 = function (s) {
   return maxLen;
 };
 
-console.log(lengthOfLongestSubstring1("pwwkew"));
+// console.log(lengthOfLongestSubstring1("pwwkew"));
 
 // Commented version:
 var lengthOfLongestSubstring2 = function (s) {
@@ -177,7 +177,7 @@ var lengthOfLongestSubstring2 = function (s) {
     // max prevents moving backward, 'start' can only move forward
     if (seen.has(s[i])) start = Math.max(seen.get(s[i]) + 1, start);
     seen.set(s[i], i);
-    console.log(seen);
+    // console.log(seen);
     // maximum of the current substring length and maxLen
     maxLen = Math.max(i - start + 1, maxLen);
   }
@@ -254,4 +254,132 @@ const searchPosition = (arr, n) => {
   }
 };
 
-console.log(searchPosition([1, 2, 3, 14], 3));
+const searchPosition1 = (nums, target) => {
+  let low = 0;
+  let high = nums.length - 1;
+  if (nums.indexOf(target) != -1) {
+    return nums.indexOf(target);
+  } else if (nums[0] > target) {
+    return 0;
+  } else if (nums.slice(-1) < target) {
+    return nums.length;
+  } else {
+    while (low < high) {
+      let mid = low + Math.floor((high - low) / 2);
+      if (target > nums[mid]) {
+        low = mid + 1;
+      } else {
+        high = mid;
+      }
+    }
+    return low;
+  }
+};
+
+// console.log(searchPosition([1, 2, 3, 14], 3));
+
+//Given two strings needle and haystack, return the index of the first occurrence of needle in haystack, or -1 if needle is not part of haystack.
+// Return 0 if needle is an empty string.
+// var strStr = function (haystack, needle) {
+//   if (!needle.length) return 0;
+//   if (!haystack.includes(needle)) return -1;
+//   return haystack.split(`${needle}`)[0].length;
+// };
+
+const strStr = (haystack, needle) => {
+  if (needle === "" || needle === haystack) return 0; // the only mandatory check here is (needle === '')
+  if (haystack.length < needle.length) return -1; // the other ones are for efficiency
+
+  for (let i = 0; i < haystack.length - needle.length + 1; i++) {
+    // start looping through haystack until the remaining substring is shorter than needle
+    if (haystack[i] === needle[0]) {
+      // as soon as we see a character that matches the first character of needle
+      for (let j = 0; j < needle.length; j++) {
+        // start looping through both needle and haystack
+        if (needle[j] !== haystack[i + j]) {
+          // as soon as the characters don't match
+          break; // break out of the loop and return to looping through haystack
+        } else if (j === needle.length - 1) {
+          // otherwise, if we looped through the entire needle and all of the characters matched
+          return i; // return the index of the first character of haystack with which we started the loop
+        }
+      }
+    }
+  }
+
+  return -1; // return -1 if there wasn't a match
+};
+
+var search = function (nums, target) {
+  let low = 0;
+  let high = nums.length - 1;
+
+  if (nums[low] === target) {
+    return low;
+  } else if (nums[high] === target) {
+    return high;
+  } else {
+    while (low < high) {
+      let mid = low + Math.floor((high - low) / 2);
+      if (target === nums[mid]) {
+        return mid;
+      } else if (target > nums[mid]) {
+        low = mid + 1;
+      } else {
+        high = mid + 1;
+      }
+    }
+    return -1;
+  }
+};
+
+var searcharr = [9, 12];
+var searcharr1 = [12, 9];
+var searcharr2 = [1, 3, 5, 12, 9, 6];
+console.log(search(searcharr, 9));
+console.log(search(searcharr1, 9));
+console.log(search(searcharr2, 9));
+
+// two sum: Given a 1-indexed array of integers numbers that is already sorted in non-decreasing order
+// find two numbers such that they add up to a specific target number.
+var twoSum = function (numbers, target) {
+  let pointer1 = 0;
+  let pointer2 = numbers.length - 1;
+
+  if (numbers[pointer1] + numbers[pointer2] === target) {
+    return [pointer1 + 1, pointer2 + 1];
+  } else {
+    while (pointer1 < pointer2) {
+      let sum = numbers[pointer1] + numbers[pointer2];
+      if (sum === target) {
+        return [pointer1 + 1, pointer2 + 1];
+      } else if (sum < target) {
+        pointer1 += 1;
+      } else {
+        pointer2 -= 1;
+      }
+    }
+  }
+};
+
+console.log(twoSum([1, 3, 5, 6, 9, 12], 21));
+
+// Given an integer array nums sorted in non-decreasing order, return an array of the squares of each number sorted in non-decreasing order.
+//Input: nums = [-4,-1,0,3,10] Output: [0,1,9,16,100]
+
+var sortedSquares = function (nums) {
+  let pointer1 = 0;
+  let pointer2 = nums.length - 1;
+  let res = new Array(nums.length);
+
+  for (let i = nums.length - 1; i >= 0; i--) {
+    if (Math.abs(nums[pointer2]) > Math.abs(nums[pointer1])) {
+      res[i] = nums[pointer2] ** 2;
+      pointer2 -= 1;
+    } else {
+      res[i] = nums[pointer1] ** 2;
+      pointer1 += 1;
+    }
+  }
+  return res;
+};
